@@ -1,48 +1,31 @@
+import Funciones_Ejercicio1 as func
+
 """Genere un programa donde el usuario ingrese un número N y luego llene una lista (arreglo)
 con N números definidos por el usuario. Asuma que el usuario siempre ingresará números deferentes
 (no ingresará números repetidos)."""
-n = int(input("Ingrese la cantidad de elementos que va a ingresar --> "))
-lista = []
-for i in range(0, n):
-    fl = int(input("Ingrese numero entero --> "))
-    lista.append(fl)
-print(lista)
+n = func.cant_elem()
+lista = func.rellenaLista(n)
 
-#Recorrido de lista para obtener el tercer numero mayor
-max_3 = 0
-max_if1 = 0
-max_if2 = 0
-max_if3 = 0
-for num in lista:
-    if num > max_if3 and num > max_if2 and num > max_if1:
-        max_if1 = num
-    elif num > max_if3 and num > max_if2 and num < max_if1:
-        max_if3 = max_if2
-        max_if2 = num
-    elif num > max_if3 and num < max_if2:
-        max_if3 = num
+"""Recorrido de lista para obtener el tercer numero mayor"""
+mayor_3 = func.recorrerLista(lista)
 
-    max_3 = max_if3
+"""Recorrido de lista para obtener el tercer numero mayor aunque modifica lista ordenando la en ascendente"""
+alt_may_3 = func.alt_mayor_3(lista)
 
-#Recorrido de lista y contabilizacion de numeros impares con modal
-cant_impar =0
-for i in lista:
-    if i%2 != 0:
-        cant_impar = cant_impar+1
+"""Recorrido de lista y contabilizacion de numeros impares con modal"""
+impar = func.impares(lista)
 
 #Recorrer lista, comprobar si el numero esta entre numeros mayores a el, sumar en cantidad si
-total_bt_may = 0
-for i in range(1,len(lista)-1):
-    if lista[i-1] > lista [i] and lista[i+1] > lista[i]:
-        total_bt_may = total_bt_may+1
-
+total_may = func.entre_mayores(lista)
 
 #Imprimir el tercer mayor número en la lista.
-print("El numero tercer mayor en la lista es: ",max_3)
-
+print("El numero tercer mayor en la lista es: ",mayor_3)
+print("===============================")
+print("El numero tercer mayor alternativa que ordena lista en la lista es: ",alt_may_3)
+print("===============================")
 #Imprimir la cantidad de números impares que posee la lista.
-print("La cantidad de numeros impares en la lista es: ",cant_impar)
-
+print("La cantidad de numeros impares en la lista es: ",impar)
+print("===============================")
 #Imprimir la cantidad de números en la lista que cumplen con estar entre dos números mayores a él.
-print("La cantidad de numeros que estan entre numeros mayores a el son: ",total_bt_may)
+print("La cantidad de numeros que estan entre numeros mayores a el son: ",total_may)
 
