@@ -1,4 +1,3 @@
-
 """Funcion para INDICAR LA CANTIDAD DE NOTAS A INGRESAR"""
 def cant_notas():
     n = int(input("Indique la cantidad de notas a ingresar en sistema --> "))
